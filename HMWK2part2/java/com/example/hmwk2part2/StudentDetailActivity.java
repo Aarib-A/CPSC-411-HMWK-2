@@ -1,14 +1,20 @@
 package com.example.hmwk2part2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+//import com.example.hmwk2part2.adapter.CoursesSummaryLVAdapter;
+import com.example.hmwk2part2.adapter.CoursesSummaryLVAdapter;
 import com.example.hmwk2part2.model.Student;
 import com.example.hmwk2part2.model.StudentDB;
 
@@ -16,7 +22,13 @@ public class StudentDetailActivity extends AppCompatActivity {
 
     protected Menu detailMenu;
     protected int studentIndex;
+    public static final String LocationOfStudentIndex = "com.example.hmwk2part2.StudentDetailActivity.java";
     protected final String TAG = "Detail Student Screen (StudentDetailActivity.java)";
+
+    protected View root;
+
+    protected ListView coureSummaryView;
+    protected CoursesSummaryLVAdapter ad;
 
     @Override
     protected void onCreate(Bundle savdInstance){
@@ -38,6 +50,35 @@ public class StudentDetailActivity extends AppCompatActivity {
         cwidView.setEnabled(false);
 
         // Need to implement to show courses
+        Button addCourseButton = (Button) findViewById(R.id.button_add_course);
+
+        addCourseButton.setOnClickListener(
+            new Button.OnClickListener() {
+                @Override
+                public void onClick(View viewObject) {
+                    //SPAWNING NEW ACTIVITY(AppCompatActivity) HERE
+//                    AddNewCourseACTIVITY();
+                }
+            }
+        );
+
+        coureSummaryView = findViewById(R.id.courses_listview_id);
+        ad = new CoursesSummaryLVAdapter(studentIndex);
+        coureSummaryView.setAdapter(ad);
+    }
+
+    private void AddNewCourseACTIVITY() {
+
+//        Intent intentToSpawn  = new Intent(this, AddCourseActivity.class);
+//        intentToSpawn.putExtra(LocationOfStudentIndex, studentIndex);
+//        startActivity(intentToSpawn);
+    }
+
+    @Override
+    protected void onStart() {
+        Log.d(TAG, "onStart() called");
+        ad.notifyDataSetChanged();
+        super.onStart();
     }
 
     @Override

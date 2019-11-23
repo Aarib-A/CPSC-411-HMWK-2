@@ -16,6 +16,9 @@
         <activity android:name=".AddStudentActivity"
             android:parentActivityName=".StudentSummaryLVActivity"
             />
+        <activity android:name=".AddCourseActivity"
+            android:parentActivityName=".StudentDetailActivity"
+            />
         <activity android:name=".StudentSummaryLVActivity"
             android:launchMode="singleTop">
             <intent-filter>

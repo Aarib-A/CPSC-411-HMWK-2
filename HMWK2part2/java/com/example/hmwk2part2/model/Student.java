@@ -24,4 +24,6 @@ public class Student {
     public void setCWID(int CWID){mCWID = CWID;}
 
     public void setmCourses(ArrayList<CourseEnrollment> courses){mCourses = courses;}
+    public ArrayList<CourseEnrollment> getmCourses(){return mCourses;}
+
 }

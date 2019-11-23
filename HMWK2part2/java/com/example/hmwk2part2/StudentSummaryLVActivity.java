@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hmwk2part2.adapter.StudentSummaryLVAdapter;
-import com.example.hmwk2part2.model.StudentDB;
+//import com.example.hmwk2part2.model.StudentDB;
 
 
 public class StudentSummaryLVActivity extends AppCompatActivity {
@@ -24,7 +24,7 @@ public class StudentSummaryLVActivity extends AppCompatActivity {
     protected StudentSummaryLVAdapter ad;
 
     protected Menu detailMenu;
-    protected int studentIndex;
+
 
     @Override
     protected void onCreate(Bundle savedInstance){
